@@ -11,7 +11,7 @@ useEffect(()=>{
   const words=text.split(' ');
   let count=0;
   words.forEach((word)=>{
-    if(word.trim()!==' '){
+    if(word.trim()!==''){
       count++;
     }
   });
