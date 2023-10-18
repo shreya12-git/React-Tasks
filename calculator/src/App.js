@@ -2,47 +2,47 @@ import React, { useState } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
 import Card from './components/Card';
-import math from 'mathjs';
+
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(0);
   const [outputValue, setOutputValue] = useState('');
 
   const handleClick = (value) => {
-    switch (value) {
-      case "=": {
-        if (inputValue !== "") {
-          try {
-            const ans = math.evaluate(inputValue);
-            setOutputValue(ans);
-          } catch (err) {
-            setOutputValue("Math Error");
-          }
-        }
-        setInputValue('');
-        break;
-      }
-      case "Clear": {
-        setInputValue('');
-        setOutputValue('');
-        break;
-      }
-      case "Delete": {
-        setInputValue(inputValue.slice(0, -1));
-        break;
-      }
-      default: {
-        setInputValue(inputValue + value);
-        break;
-      }
-    }
+  //   switch (value) {
+  //     case "=": {
+  //       if (inputValue !== "") {
+  //         try {
+  //           const ans = eval(inputValue);
+  //           setOutputValue(ans);
+  //         } catch (err) {
+  //           setOutputValue("Math Error");
+  //         }
+  //       }
+  //       setInputValue('');
+  //       break;
+  //     }
+  //     case "Clear": {
+  //       setInputValue('');
+  //       setOutputValue('');
+  //       break;
+  //     }
+  //     case "Delete": {
+  //       setInputValue(inputValue.slice(0, -1));
+  //       break;
+  //     }
+  //     default: {
+  //       setInputValue(inputValue + value);
+  //       break;
+  //     }
+  //   }
   };
 
   return (
     <div className="container">
       <div className="calculator">
         <div className="screen">
-          <Card input={inputValue} output={outputValue} />
+          <Card ></Card> 
         </div>
         <div className="button-part">
           <div className="button-row">
