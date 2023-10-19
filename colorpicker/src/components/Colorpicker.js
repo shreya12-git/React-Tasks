@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const ColorPicker = ({ colors }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(null);
 
-  const toggleColorList = () => {
-    setIsOpen(!isOpen);
-  };
+const ColorPicker = (props) => {
+  let colors=props.colors;
+  const[selectedColor,setSelectedColor]=useState('')
+  const[showColors,setShowColors]=useState(false);
 
-  const selectColor = (color) => {
+const handleColorClick = (color) => {
     setSelectedColor(color);
-    setIsOpen(false);
-  };
+    setShowColors(false);
+ };
 
-  return (
-    <div className="color-picker">
-      <button onClick={toggleColorList}>Pick a color</button>
-      {isOpen && (
-        <ul className="color-list">
-          {colors.map((color, index) => (
-            <li
-              key={index}
-              style={{ backgroundColor: color }}
-              onClick={() => selectColor(color)}
-            ></li>
+ const handleButtonClick = () => {
+    setShowColors(!showColors);
+ };
+
+ return (
+    <div>
+      <div className="box">
+      <button className="pickbutton" onClick={handleButtonClick} >
+        {selectedColor ? `Selected color: ${selectedColor}` : 'Pick a color'}
+      </button>
+      {showColors && (
+        <div>
+          {colors.map((color) => (
+            <div
+              key={color}
+              style={{ backgroundColor: color, width: '30px', height: '30px', display: 'inline-block', cursor: 'pointer' }}
+              onClick={() => handleColorClick(color)}
+            />
           ))}
-        </ul>
-      )}
-      {selectedColor && (
-        <div className="selected-color" style={{ backgroundColor: selectedColor }}>
-          You picked: {selectedColor}
         </div>
       )}
     </div>
-  );
+    </div>
+ );
 };
 
 export default ColorPicker;

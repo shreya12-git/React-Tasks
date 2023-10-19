@@ -1,11 +1,11 @@
 import './App.css';
 import Colorpicker from './components/Colorpicker';
 function App() {
-  const colors=['red','green','blue','yellow','pink','aqua','orange','purple','peach','dark green','orange','aquamarine','brown','darkorange','grey','mustard'];
+  const colors=['red','lime','blue','yellow','violet','aqua','orange','purple',' pink','green','coral','aquamarine','brown','darkorange','grey','mustard'];
   return (
     <div className="App">
-      
-     <Colorpicker color={colors}></Colorpicker>
+        <h1>Color Picker</h1>
+        <Colorpicker colors={colors}></Colorpicker>
     </div>
   );
 }
